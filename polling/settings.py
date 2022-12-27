@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from decouple import config
 from decouple import Csv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -72,7 +73,7 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT'),
-     }
+    }
 }
 
 
@@ -100,7 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = config ('TIME_ZONE')
+TIME_ZONE = config('TIME_ZONE')
 
 USE_I18N = True
 
