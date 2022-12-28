@@ -9,13 +9,20 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                echo 'python3 manage.py test'
+                sh 'python3 manage.py test'
                 // 
             }
         }
         stage('Deploy') { 
             steps {
-                sh 'echo deploying'
+                sh 'ssh deployment-user@192.168.56.108 "source venv/bin/activate; \
+                cd polling; \
+                git pull origin master; \
+                pip install -r requirement.txt \
+                python manage.py migrate; \
+                deactivate; \
+                sudo systemctl restart nginx; \
+                sudo systemctl restart gunicorn "'
                 // 
             }
         }
