@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'ssh deployment-user@192.168.56.108 "source venv/bin/activate; \
+                sh 'ssh -o StrictHostKeychecking=no deployment-user@192.168.56.108 "source venv/bin/activate; \
                 cd polling; \
                 git pull origin master; \
                 pip install -r requirement.txt \
