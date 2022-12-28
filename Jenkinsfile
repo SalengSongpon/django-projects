@@ -18,7 +18,7 @@ pipeline {
                 sh 'ssh -o StrictHostKeychecking=no deployment-user@192.168.56.108 "source venv/bin/activate; \
                 cd polling; \
                 git pull origin master; \
-                pip install -r requirement.txt \
+                pip install -r requirement.txt --no-warn-script-location; \
                 python manage.py migrate; \
                 deactivate; \
                 sudo systemctl restart nginx; \
