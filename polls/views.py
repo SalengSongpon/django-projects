@@ -21,7 +21,7 @@ class IndexView(generic.ListView):
         ).order_by('-pub_date')[:5]
 
 def home(request):
-    return HttpResponse("Hello, world. Welcome to the home page! ")
+    return HttpResponse("Hello, world. Welcome to the home pages! ")
 
 
 class DetailView(generic.DetailView):
