@@ -1,4 +1,4 @@
-pipeline {
+/* pipeline {
     agent any 
     stages {
         stage('Build') { 
@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-        stage('Deploy To Staging') { 
+        /* stage('Deploy To Staging') { 
             steps {
                 sh 'ssh -o StrictHostKeyChecking=no deployment-user@192.168.56.111 "source venv/bin/activate; \
                 cd polling; \
@@ -26,9 +26,9 @@ pipeline {
                 sudo systemctl restart gunicorn "'
                 // 
             }
-        }
+        } */
 
-        stage('Deploy To Production') { 
+        /* stage('Deploy To Production') { 
 
             input {
                 message "Shall we deploy to production?"
@@ -44,6 +44,27 @@ pipeline {
                 sudo systemctl restart nginx; \
                 sudo systemctl restart gunicorn "'
                 // 
+            }
+        } */
+    }
+} */
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
